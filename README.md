@@ -1,4 +1,4 @@
 # LeetCode-Problem-Solutions
-This repository provides the solution to the leetcode problems which I have solved.
+This repository provides the solution to the LeetCode problems which I have solved by using JAVA programming language.
 
 Thanks :)
