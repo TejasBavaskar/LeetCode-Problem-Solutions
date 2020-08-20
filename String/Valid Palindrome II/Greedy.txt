@@ -1,0 +1,22 @@
+class Solution { // O(n) time complexity
+    public boolean isPalindromeRange(String s, int i, int j) {
+        for (int k = i; k <= i + (j - i) / 2; k++) {
+            if (s.charAt(k) != s.charAt(j - k + i)) return false;
+        }
+        return true;
+    }
+    public boolean validPalindrome(String s) {
+        for (int i = 0; i < s.length() / 2; i++) {
+            if (s.charAt(i) != s.charAt(s.length() - 1 - i)) {
+                int j = s.length() - 1 - i;
+                return (isPalindromeRange(s, i+1, j) ||
+                        isPalindromeRange(s, i, j-1));
+            }
+        }
+        return true;
+    }
+}
+
+/*
+I initially had the same question given there is a seemingly nested loop, but then looking carefully, I realized that once the check in line 10 (Java) gives "false", then the two calls inside the if statement are performed and then the result is returned immediately, which means the complexity is O(N). On the other hand, if the check in line 10 gives "true", there is never any calls to the helper function, which means the original string is a palindrome without removal of any characters, which also leads to O(N) complexity. In summary, the two helper function calls are only called for a single index i, not for all indices, that's why the solution is O(N).
+*/

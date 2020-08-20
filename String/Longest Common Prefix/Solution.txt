@@ -1,0 +1,19 @@
+class Solution { // (nlogn) + O(s*n) time complexity
+		// where s: each string length & n: strs array length
+    public String longestCommonPrefix(String[] strs) {
+        String ans = "";
+        if(strs.length == 0 )
+            return ans;
+        Arrays.sort(strs,(String s1, String s2)-> Integer.compare(s1.length(), s2.length()));
+        for(int i=0;i<strs[0].length();i++){
+            char ch = strs[0].charAt(i);
+            for(int j=0;j<strs.length;j++){
+                if(strs[j].charAt(i) != ch){
+                    return ans;
+                }
+            }
+            ans = ans.concat(String.valueOf(ch));
+        }
+        return ans;
+    }
+}

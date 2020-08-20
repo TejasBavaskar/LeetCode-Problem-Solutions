@@ -1,0 +1,14 @@
+class Solution { // O(nlogn) + O(n) time complexity
+    public int missingNumber(int[] nums) {
+        Arrays.sort(nums);
+        int val = 0;
+        for(int i=0;i<nums.length;i++){
+            if(nums[i] == (val))
+                val++;
+            else{
+                break;
+            }
+        }
+        return val ;
+    }
+}

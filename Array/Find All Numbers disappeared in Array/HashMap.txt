@@ -1,0 +1,15 @@
+class Solution { // O(n) time complexity
+    public List<Integer> findDisappearedNumbers(int[] nums) {
+        List<Integer> list = new ArrayList<>();
+        HashMap <Integer,Integer> hmap = new HashMap<>();
+        for(int x:nums){
+            hmap.put(x,1);
+        }        
+        for(int i=1;i<=nums.length;i++){
+            if(!hmap.containsKey(i)){
+                list.add(i);
+            }
+        }
+        return list;
+    }
+}

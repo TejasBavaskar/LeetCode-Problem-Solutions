@@ -1,0 +1,20 @@
+class Solution { //O(n^2) time complexity
+    public List<Integer> findDisappearedNumbers(int[] nums) {
+        List<Integer> list = new ArrayList<>();
+        for(int i=0;i<nums.length;i++){
+            int search = i+1;
+            int flag=0;
+            for(int j=0;j<nums.length;j++){
+                if(nums[j] == search){
+                    flag=1;
+                    break;
+                }
+            }
+            if(flag == 0){
+                list.add(search);
+            }    
+        }
+        return list;
+        
+    }
+}

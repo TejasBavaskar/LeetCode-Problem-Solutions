@@ -1,0 +1,41 @@
+class Solution { // O(n) time complexity
+		// n: number of months
+    public int dayOfYear(String date) {
+        String[] normalized = date.split("-");
+        int year = Integer.parseInt(normalized[0]);
+        int month = Integer.parseInt(normalized[1]);
+        int day = Integer.parseInt(normalized[2]);
+        int ans = 0;
+        for(int i=1;i<month;i++){
+            if(i==2){
+                if(year % 4 == 0 && (year%100 !=0 || year%400==0)){
+                    ans = ans + 29;
+                }else{
+                    ans = ans + 28;
+                }
+            }
+            else{
+                if(i<=7){
+                    if(i%2 ==1)
+                        ans = ans + 31;
+                    else
+                        ans = ans + 30;
+                }
+                else if(i>=8){
+                    if(i%2 ==1)
+                        ans = ans + 30;
+                    else
+                        ans = ans + 31;
+                }
+                
+            }
+                    
+                
+        }
+            
+        
+    ans = ans + day;
+    return ans;
+        
+    }
+}

@@ -1,0 +1,11 @@
+class Solution {//O(n) time complexity // Kadane's Algorithm
+    public int maxSubArray(int[] nums) {
+        int currentSum = nums[0];
+        int globalMax = nums[0];
+        for(int i=1;i<nums.length;i++){
+            currentSum = Math.max(nums[i], nums[i] + currentSum);
+            globalMax = (currentSum > globalMax) ? currentSum : globalMax;
+        }
+        return globalMax;
+    }
+}

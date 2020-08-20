@@ -1,0 +1,29 @@
+class Solution { // O(n) time complexity
+    public boolean isValid(String s) {
+        Stack<Character> stack = new Stack<>();
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i) == '(' || s.charAt(i) == '[' || s.charAt(i) == '{' )
+                stack.push(s.charAt(i));
+            else{
+                if(stack.isEmpty())
+                    return false;
+                char lastChar = stack.pop();
+                switch(lastChar){
+                    case '(':
+                        if(!(s.charAt(i) == ')'))
+                            return false;
+                        break;
+                    case '[':
+                        if(!(s.charAt(i) == ']'))
+                            return false;
+                        break;
+                    case '{':
+                        if(!(s.charAt(i) == '}'))
+                            return false;
+                        break;
+                }
+            }
+        }
+        return stack.isEmpty();
+    }
+}
